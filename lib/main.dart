@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'posts.dart';
 import 'detail_page.dart';
-import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -86,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         .then((value) => print('Последний элемент 2: ${value.last.title}'));
 
     setState(() {
-      postsList = this.postsList;
+      postsList = postsList;
     });
   }
 
@@ -184,21 +181,3 @@ class DataToDetailPage {
     required this.selftext,
   });
 }
-
-
-                    // // добавление полученных постов в отдельный map
-                    // Map<String, dynamic> posts = {};
-                    // posts.addAll({
-                    //   '$index': { 
-                    //     '${snapshot.data?.children[index].name}': {
-                    //       'title': '${snapshot.data?.children[index].title}',
-                    //       'thumbnail':
-                    //           '${snapshot.data?.children[index].thumbnail}',
-                    //       'selftext':
-                    //           '${snapshot.data?.children[index].selftext}',
-                    //       'ups': snapshot.data?.children[index].ups
-                    //     }
-                    //   }
-                    // });
-                    // print(posts);
-                    // print('Длина: ${snapshot.data?.children.length}');
