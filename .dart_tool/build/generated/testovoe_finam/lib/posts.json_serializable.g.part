@@ -1,0 +1,31 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+PostsList _$PostsListFromJson(Map<String, dynamic> json) => PostsList(
+      children: (json['children'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, Post.fromJson(e as Map<String, dynamic>)),
+      ),
+    );
+
+Map<String, dynamic> _$PostsListToJson(PostsList instance) => <String, dynamic>{
+      'children': instance.children,
+    };
+
+Post _$PostFromJson(Map<String, dynamic> json) => Post(
+      name: json['name'] as String,
+      title: json['title'] as String,
+      thumbnail: json['thumbnail'] as String,
+      ups: json['ups'] as int,
+      selftext: json['selftext'] as String,
+      thumbnailWidth: json['thumbnail_width'] as int,
+    );
+
+Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
+      'name': instance.name,
+      'title': instance.title,
+      'thumbnail': instance.thumbnail,
+      'ups': instance.ups,
+      'selftext': instance.selftext,
+      'thumbnail_width': instance.thumbnailWidth,
+    };
